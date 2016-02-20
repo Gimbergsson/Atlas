@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <Button
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Create account"
+        android:id="@+id/submit_details"
+        android:layout_gravity="center_horizontal|bottom"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Using FB login details"
+        android:id="@+id/fb_using_txt"
+        android:layout_gravity="center_horizontal|top"
+        android:layout_alignParentTop="false"
+        android:layout_centerHorizontal="true" />
+
+    <android.lib.recaptcha.ReCaptcha
+        android:id="@+id/recaptcha"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scaleType="centerInside"
+        android:layout_above="@+id/username"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="15"
+        android:id="@+id/username"
+        android:layout_gravity="center"
+        android:hint="Username 4-15"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:singleLine="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="fb_id"
+        android:id="@+id/fb_id"
+        android:layout_below="@+id/using_fb_txt"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="fb_email"
+        android:id="@+id/fb_email"
+        android:layout_below="@+id/fb_id"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="fb_name"
+        android:id="@+id/fb_name"
+        android:layout_below="@+id/fb_email"
+        android:layout_centerHorizontal="true" />
+
+    <ImageView
+        android:layout_width="250px"
+        android:layout_height="250px"
+        android:id="@+id/fb_img"
+        android:layout_below="@+id/fb_name"
+        android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/email"
+        android:layout_below="@+id/username"
+        android:layout_alignLeft="@+id/username"
+        android:layout_alignStart="@+id/username"
+        android:layout_alignRight="@+id/username"
+        android:singleLine="true"
+        android:hint="Email"
+        android:inputType="textEmailAddress" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/password"
+        android:layout_below="@+id/email"
+        android:layout_alignLeft="@+id/email"
+        android:layout_alignRight="@+id/email"
+        android:singleLine="true"
+        android:hint="Password"
+        android:inputType="textPassword" />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SKIP PASSWORD"
+        android:id="@+id/skip_password"
+        android:layout_below="@+id/password"
+        android:layout_marginBottom="-8dp"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="(You can only sign in using Facebook)"
+        android:id="@+id/fb_only_pw_txt"
+        android:singleLine="true"
+        android:layout_alignParentRight="false"
+        android:layout_alignParentBottom="false"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/skip_password" />
+
+</RelativeLayout>

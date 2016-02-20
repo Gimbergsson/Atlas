@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="New Text"
+        android:id="@+id/status_text"
+        android:layout_gravity="center_horizontal" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sign in with Facebook"
+        android:id="@+id/fb_login_button"
+        android:background="@drawable/com_facebook_button_background"
+        android:textColor="#fff"
+        android:layout_gravity="center_horizontal"
+        android:drawableLeft="@drawable/com_facebook_button_like_icon"
+        android:nestedScrollingEnabled="true"
+        android:drawablePadding="6dp"
+        android:gravity="center"
+        android:paddingBottom="5dp"
+        android:paddingLeft="8dp"
+        android:paddingTop="5dp"
+        android:textSize="14.0dp"
+        android:paddingRight="8dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sign out"
+        android:id="@+id/logout_button"
+        android:layout_gravity="center_horizontal" />
+
+
+</LinearLayout>

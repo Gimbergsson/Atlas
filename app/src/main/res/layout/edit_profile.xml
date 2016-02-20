@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <EditText
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/name"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_margin="10dp"
+        android:textIsSelectable="true"
+        android:hint="Your name"
+        android:textStyle="italic" />
+
+    <EditText
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/about"
+        android:layout_below="@+id/name"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_margin="10dp"
+        android:hint="About you"
+        android:maxLength="240"
+        android:lines="3"
+        android:textStyle="italic" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/about">
+
+        <Spinner
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/gender"
+            android:layout_toRightOf="@+id/gender_label"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginRight="10dp"
+            android:spinnerMode="dropdown"
+            android:focusable="false"
+            style="android.R.layout.simple_spinner_item_2"
+            android:contextClickable="true"
+            android:layout_alignParentTop="false"
+            android:layout_alignParentRight="false"
+            android:layout_alignWithParentIfMissing="false"
+            android:layout_alignParentBottom="false" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Gender:"
+            android:id="@+id/gender_label"
+            android:layout_alignParentLeft="true"
+            android:layout_alignTop="@+id/gender"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:textSize="24dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Birthday:"
+            android:id="@+id/textView8"
+            android:textSize="24dp"
+            android:layout_alignTop="@+id/birthday"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_margin="10dp" />
+
+        <Spinner
+            style="android.R.layout.simple_spinner_item_2"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/birthday"
+            android:focusable="false"
+            android:contextClickable="true"
+            android:layout_alignWithParentIfMissing="false"
+            android:layout_below="@+id/gender_label"
+            android:layout_toRightOf="@+id/gender_label"
+            android:layout_toEndOf="@+id/gender_label"
+            android:clickable="true" />
+
+    </RelativeLayout>
+
+</RelativeLayout>
