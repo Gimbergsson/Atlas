@@ -1,10 +1,10 @@
 language: android
 android:
-  components:
-    - platform-tools-23.1
-	- android-update-sdk --components=build-tools-23.0.2
-    - build-tools-23.0.2
-    - android-23
+	components:
+		- platform-tools-23.1
+		- android-update-sdk --components=build-tools-23.0.2
+		- build-tools-23.0.2
+		- android-23
 
 script:
-   - ./gradlew --stacktrace build connectedCheck
+	- ./gradlew --stacktrace build connectedCheck
