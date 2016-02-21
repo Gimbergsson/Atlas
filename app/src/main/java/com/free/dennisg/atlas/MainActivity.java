@@ -21,7 +21,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.facebook.SessionDefaultAudience;
+import com.facebook.login.DefaultAudience;
 import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -52,14 +52,13 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.Set;
+import java.util.List;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 
 import se.simbio.encryption.Encryption;
 
-@SuppressWarnings("deprecation")
 public class MainActivity extends Activity {
 
     // Declare variables
@@ -71,19 +70,15 @@ public class MainActivity extends Activity {
     //URL to send the login info to
     String LoginURL = "http://dennisgimbergsson.se/places_temp/login.php";
 
-    String title_string, description_string, lng_string, lat_string;
+    String lng_string, lat_string;
 
     Double lng_double, lat_double;
 
     private GoogleMap map;
 
-    Double myLatitude = 0.00;
-    Double myLongitude = 0.00;
-
     Button FacebookLoginBtn, LoginButton;
     EditText email, password;
     ProgressBar FacebookLoadingSpinner;
-    TextView createAccount;
 
     SimpleFacebook mSimpleFacebook;
     Encryption encryption;
@@ -129,7 +124,7 @@ public class MainActivity extends Activity {
             Intent mapOverviewIntent = new Intent(MainActivity.this, MapOverview.class);
             startActivity(mapOverviewIntent);
             finish();
-        }else if (isSingedIn.equals(false)){
+        }else if(isSingedIn.equals(false)){
             //Do nothing
         }
 
@@ -146,6 +141,7 @@ public class MainActivity extends Activity {
         });
 
         encryption = Encryption.getDefault("MyKey", "MySalt", new byte[16]);
+
 
         mSimpleFacebook = SimpleFacebook.getInstance(MainActivity.this);
 
@@ -168,15 +164,15 @@ public class MainActivity extends Activity {
 
         //Set FB Permission and configure it
         Permission[] permissions = new Permission[] {
-                Permission.PUBLIC_PROFILE,
-                Permission.EMAIL
+                Permission.EMAIL,
+                Permission.USER_WEBSITE
         };
 
         SimpleFacebookConfiguration configuration = new SimpleFacebookConfiguration.Builder()
                 .setAppId("748966228551478")
                 .setNamespace("places_")
                 .setPermissions(permissions)
-                .setDefaultAudience(SessionDefaultAudience.FRIENDS)
+                .setDefaultAudience(DefaultAudience.FRIENDS)
                 .setAskForAllPermissionsAtOnce(false)
                 .build();
 
@@ -194,9 +190,9 @@ public class MainActivity extends Activity {
             @Override
             public void onClick(View arg0) {
                 //Checks if the email is valid
-                if (android.util.Patterns.EMAIL_ADDRESS.matcher(email.getText().toString()).matches() == true){
+                if (android.util.Patterns.EMAIL_ADDRESS.matcher(email.getText().toString()).matches()){
                     new loginToApp().execute();
-                } else if (android.util.Patterns.EMAIL_ADDRESS.matcher(email.getText().toString()).matches() == true) {
+                } else if (android.util.Patterns.EMAIL_ADDRESS.matcher(email.getText().toString()).matches()) {
                     email.setError("Invalid e-mail");
                 }
             }
@@ -216,7 +212,6 @@ public class MainActivity extends Activity {
             } else {
                 Toast.makeText(this, "b00", Toast.LENGTH_SHORT).show();
             }
-            return;
     }
 
     //Login using facebook
@@ -224,39 +219,38 @@ public class MainActivity extends Activity {
         // Login listener
         final OnLoginListener onLoginListener = new OnLoginListener() {
 
-            @Override
             public void onFail(String reason) {
                 Log.w("TAG", "Failed to login");
                 FacebookLoadingSpinner.setVisibility(View.GONE);
                 FacebookLoginBtn.setEnabled(true);
             }
 
-            @Override
             public void onException(Throwable throwable) {
                 Log.e("TAG", "Bad thing happened", throwable);
                 FacebookLoadingSpinner.setVisibility(View.GONE);
                 FacebookLoginBtn.setEnabled(true);
             }
 
-            @Override
-            public void onThinking() {
+            /*public void onThinking() {
                 FacebookLoadingSpinner.setVisibility(View.VISIBLE);
                 FacebookLoginBtn.setEnabled(false);
-            }
+            }*/
 
-            @Override
-            public void onLogin() {
+            public void onLogin(String accessToken, List<Permission> acceptedPermissions, List<Permission> declinedPermissions) {
                 FacebookLoadingSpinner.setVisibility(View.GONE);
                 Intent createAccountIntent = new Intent(MainActivity.this, CreateAccount.class);
                 startActivity(createAccountIntent);
                 finish();
             }
 
-            @Override
-            public void onNotAcceptingPermissions(Permission.Type type) {
+            /*public void onNotAcceptingPermissions(PermissionType type) {
                 FacebookLoadingSpinner.setVisibility(View.GONE);
                 FacebookLoginBtn.setEnabled(true);
                 Toast.makeText(MainActivity.this, String.format("You didn't accept %s permissions", type.name()), Toast.LENGTH_SHORT).show();
+            }*/
+
+            public void onCancel(){
+
             }
         };
 
@@ -273,6 +267,9 @@ public class MainActivity extends Activity {
     //Login using a existing user
     class loginToApp extends AsyncTask<String, String, String> {
 
+        String encrypted_password = encryption.encryptOrNull(password.getText().toString());
+        String getEmailString = email.getText().toString();
+
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
@@ -287,9 +284,7 @@ public class MainActivity extends Activity {
         protected String doInBackground(String... arg0) {
             ArrayList<NameValuePair> values = new ArrayList<NameValuePair>();
 
-            String encrypted_password = encryption.encryptOrNull(password.getText().toString());
-
-            values.add(new BasicNameValuePair("Email", email.getText().toString()));
+            values.add(new BasicNameValuePair("Email", getEmailString));
             values.add(new BasicNameValuePair("EncryptedPassword", encrypted_password));
 
             try {
@@ -427,7 +422,7 @@ public class MainActivity extends Activity {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        mSimpleFacebook.onActivityResult(this, requestCode, resultCode, data);
+        mSimpleFacebook.onActivityResult(requestCode, resultCode, data);
         super.onActivityResult(requestCode, resultCode, data);
     }
 

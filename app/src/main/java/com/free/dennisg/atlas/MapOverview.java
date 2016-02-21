@@ -193,19 +193,6 @@ public class MapOverview extends Activity implements OnMarkerClickListener{
         onLogoutListener = new OnLogoutListener() {
 
             @Override
-            public void onFail(String reason) {
-            }
-
-            @Override
-            public void onException(Throwable throwable) {
-            }
-
-            @Override
-            public void onThinking() {
-                // show progress bar or something to the user while login is happening
-            }
-
-            @Override
             public void onLogout() {
                 // change the state of the button or do whatever you want
                 Intent loginIntent = new Intent(MapOverview.this, MainActivity.class);
@@ -504,7 +491,7 @@ public class MapOverview extends Activity implements OnMarkerClickListener{
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        mSimpleFacebook.onActivityResult(this, requestCode, resultCode, data);
+        mSimpleFacebook.onActivityResult(requestCode, resultCode, data);
         super.onActivityResult(requestCode, resultCode, data);
     }
 

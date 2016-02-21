@@ -10,7 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.facebook.SessionDefaultAudience;
+import com.facebook.login.DefaultAudience;
 import com.sromku.simple.fb.Permission;
 import com.sromku.simple.fb.SimpleFacebook;
 import com.sromku.simple.fb.SimpleFacebookConfiguration;
@@ -41,15 +41,15 @@ public class Login extends Activity {
         userId = sharedPrefs.getInt("userId", 0);
 
         Permission[] permissions = new Permission[] {
-                Permission.PUBLIC_PROFILE,
-                Permission.EMAIL
+                Permission.EMAIL,
+                Permission.USER_WEBSITE
         };
 
         SimpleFacebookConfiguration configuration = new SimpleFacebookConfiguration.Builder()
                 .setAppId("748966228551478")
                 .setNamespace("places_")
                 .setPermissions(permissions)
-                .setDefaultAudience(SessionDefaultAudience.FRIENDS)
+                .setDefaultAudience(DefaultAudience.FRIENDS)
                 .setAskForAllPermissionsAtOnce(false)
                 .build();
 
@@ -58,38 +58,12 @@ public class Login extends Activity {
         FacebookLogoutBtn = (Button) findViewById(R.id.logout_button);
         StatusTxt = (TextView) findViewById(R.id.status_text);
 
-        setLogout();
-    }
-
-    /**
-     * Logout example
-     */
-    private void setLogout() {
         final OnLogoutListener onLogoutListener = new OnLogoutListener() {
-
-            @Override
-            public void onFail(String reason) {
-                StatusTxt.setText(reason);
-                Log.w(TAG, "Failed to login");
-            }
-
-            @Override
-            public void onException(Throwable throwable) {
-                StatusTxt.setText("Exception: " + throwable.getMessage());
-                Log.e(TAG, "Bad thing happened", throwable);
-            }
-
-            @Override
-            public void onThinking() {
-                // show progress bar or something to the user while login is
-                // happening
-                StatusTxt.setText("Thinking...");
-            }
-
             @Override
             public void onLogout() {
                 // change the state of the button or do whatever you want
                 StatusTxt.setText("Logged out");
+                Log.i(TAG, "You are logged out");
                 loggedOutUIState();
             }
 
@@ -109,19 +83,7 @@ public class Login extends Activity {
                 finish();
             }
         });
-    }
 
-    private void setUIState() {
-        if (mSimpleFacebook.isLogin()) {
-            loggedInUIState();
-        } else {
-            loggedOutUIState();
-        }
-    }
-
-    private void loggedInUIState() {
-        FacebookLogoutBtn.setEnabled(true);
-        StatusTxt.setText("Logged in!");
     }
 
     private void loggedOutUIState() {
@@ -137,7 +99,7 @@ public class Login extends Activity {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        mSimpleFacebook.onActivityResult(this, requestCode, resultCode, data);
+        mSimpleFacebook.onActivityResult(requestCode, resultCode, data);
         super.onActivityResult(requestCode, resultCode, data);
     }
 }
