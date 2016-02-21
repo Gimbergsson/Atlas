@@ -140,8 +140,10 @@ public class MainActivity extends Activity {
             }
         });
 
+        /**
+         **DO NOT USE THIS KEY AND SALT FOR A RELEASE BUILD
+         **/
         encryption = Encryption.getDefault("MyKey", "MySalt", new byte[16]);
-
 
         mSimpleFacebook = SimpleFacebook.getInstance(MainActivity.this);
 
