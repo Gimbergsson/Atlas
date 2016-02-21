@@ -1,10 +1,13 @@
+# configuration for https://travis-ci.org/mapsforge/mapsforge
+sudo: true
 language: android
+jdk:
+  - openjdk8
+  - oraclejdk8
 android:
-	components:
-		- platform-tools-23.1
-		- android-update-sdk --components=build-tools-23.0.2
-		- build-tools-23.0.2
-		- android-23
-
-script:
-	- ./gradlew --stacktrace build connectedCheck
+  components:
+    - tools
+    - build-tools-23.0.2
+    - android-23
+    - extra-android-m2repository
+script: ./gradlew clean build
