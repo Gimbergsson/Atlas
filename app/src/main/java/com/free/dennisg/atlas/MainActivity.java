@@ -66,7 +66,9 @@ public class MainActivity extends Activity {
     NodeList nodelist;
     ProgressDialog pDialog;
 
+    //URL to get the location
     String URL = "http://dennisgimbergsson.se/places_temp/places.php";
+    //URL to send the login info to
     String LoginURL = "http://dennisgimbergsson.se/places_temp/login.php";
 
     String title_string, description_string, lng_string, lat_string;
@@ -298,7 +300,7 @@ public class MainActivity extends Activity {
                 HttpEntity entity = response.getEntity();
                 is = entity.getContent();
 
-                Log.i("TAG", "Connection Successful");
+                Log.i("TAG", "Connection Successful!");
             } catch (Exception e) {
                 Log.i("TAG", e.toString());
                 // Invalid Address

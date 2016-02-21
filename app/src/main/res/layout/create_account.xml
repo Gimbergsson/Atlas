@@ -46,7 +46,7 @@
         android:layout_height="wrap_content"
         android:text="fb_id"
         android:id="@+id/fb_id"
-        android:layout_below="@+id/using_fb_txt"
+        android:layout_below="@+id/fb_using_txt"
         android:layout_centerHorizontal="true" />
 
     <TextView
