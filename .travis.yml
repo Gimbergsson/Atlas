@@ -10,4 +10,4 @@ android:
     - android-23
   licenses:
     - '.+'
-script: ./gradlew assembleRelease
+script: ./gradlew --stacktrace assembleRelease
