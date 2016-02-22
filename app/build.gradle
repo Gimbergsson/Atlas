@@ -13,18 +13,20 @@ android {
         versionName "0.0.2 Alpha"
     }
     signingConfigs {
+        /*
         release {
             storeFile file("myreleasekey.keystore")
             storePassword "password"
             keyAlias "alias"
             keyPassword "password"
         }
+        */
     }
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-            signingConfig signingConfigs.release
+            //signingConfig signingConfigs.release
         }
     }
     lintOptions {
