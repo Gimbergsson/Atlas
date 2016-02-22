@@ -46,6 +46,8 @@ allprojects {
     }
 }
 
+apply plugin: 'com.android.application'
+
 dependencies {
     //Facebook SDK library
     compile 'com.facebook.android:facebook-android-sdk:4.10.0'
