@@ -1,0 +1,107 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+
+    <fragment
+        android:id="@+id/map"
+        android:name="com.google.android.gms.maps.MapFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    <RelativeLayout
+        android:id="@+id/login_box"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#B3FFFFFF"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:padding="10dp">
+
+        <ProgressBar
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/fb_progressbar"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:translationZ="1dp" />
+
+        <EditText
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/email"
+            android:hint="Email"
+            android:layout_alignParentTop="true"
+            android:inputType="textEmailAddress" />
+
+        <EditText
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/password"
+            android:layout_centerHorizontal="true"
+            android:hint="Password"
+            android:layout_below="@+id/email"
+            android:inputType="textPassword" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Login"
+            android:id="@+id/login_button"
+            android:layout_centerHorizontal="true"
+            android:nestedScrollingEnabled="false"
+            android:textSize="14dp"
+            android:layout_below="@+id/password"
+            android:layout_marginTop="10dp"
+            android:layout_alignLeft="@+id/fb_login_button"
+            android:layout_alignRight="@+id/fb_login_button" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="— OR —"
+            android:id="@+id/loginWithOr"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/login_button"
+            android:layout_margin="10dp"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sign in with Facebook"
+            android:id="@+id/fb_login_button"
+            android:background="@drawable/com_facebook_button_background"
+            android:textColor="#fff"
+            android:drawableLeft="@drawable/com_facebook_button_like_icon"
+            android:drawablePadding="6dp"
+            android:paddingBottom="5dp"
+            android:paddingLeft="8dp"
+            android:paddingTop="8dp"
+            android:textSize="14dp"
+            android:paddingRight="8dp"
+            android:textAllCaps="false"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/loginWithOr"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Don&apos;t have an account?"
+            android:id="@+id/textView3"
+            android:layout_below="@+id/fb_login_button"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/create_one"
+            android:id="@+id/create_one"
+            android:layout_below="@+id/textView3"
+            android:layout_centerHorizontal="true"
+            android:textColor="#0645ad"
+            android:layout_marginBottom="20dp"/>
+
+    </RelativeLayout>
+</RelativeLayout>

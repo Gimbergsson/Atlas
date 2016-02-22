@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="countries">
+        <item name="unspecified">(Unspecified)</item>
+        <item name="sweden">Sweden</item>
+        <item name="norway">Norway</item>
+    </string-array>
+    <string-array name="countriesValues">
+        <item name="unspecified">unspecified</item>
+        <item name="sweden">sweden</item>
+        <item name="norway">norway</item>
+    </string-array>
+
+    <string-array name="gender">
+        <item name="unspecified">(Unspecified)</item>
+        <item name="male">Male</item>
+        <item name="female">Female</item>
+    </string-array>
+    <string-array name="genderValues">
+        <item name="unspecified">unspecified</item>
+        <item name="male">male</item>
+        <item name="female">female</item>
+    </string-array>
+
+</resources>

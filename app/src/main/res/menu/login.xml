@@ -1,0 +1,12 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.free.dennisg.atlas.MapOverview" >
+
+    <item
+        android:id="@+id/action_refresh"
+        android:icon="@mipmap/ic_refresh_white_24dp"
+        android:orderInCategory="0"
+        android:title="@string/action_refresh">
+    </item>
+
+</menu>

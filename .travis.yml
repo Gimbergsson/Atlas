@@ -1,0 +1,10 @@
+# configuration for https://travis-ci.org/mapsforge/mapsforge
+sudo: true
+language: android
+android:
+  components:
+    - tools
+    - build-tools-23.0.2
+    - android-23
+    - extra-android-m2repository
+script: ./gradlew assembleRelease

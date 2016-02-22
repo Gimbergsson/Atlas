@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory
+        android:key="pref_profile"
+        android:title="Profile">
+        <PreferenceScreen
+            android:key="pref_profile_category_button"
+            android:persistent="false"
+            android:title="Profile settings">
+
+            <EditTextPreference
+                android:defaultValue="(Unspecified)"
+                android:dialogTitle="Your name"
+                android:key="pref_user_personal_name"
+                android:positiveButtonText="Save"
+                android:summary="Enter your real name (Optional)"
+                android:title="Your name" />
+
+            <EditTextPreference
+                android:defaultValue="Nothings here..."
+                android:dialogTitle="About you"
+                android:key="pref_user_about"
+                android:positiveButtonText="Save"
+                android:summary="Write something about you (Optional)"
+                android:title="About you" />
+
+            <ListPreference
+                android:defaultValue="(Unspecified)"
+                android:entries="@array/countries"
+                android:entryValues="@array/countriesValues"
+                android:key="pref_user_country"
+                android:summary="Choose which country you are from (Optional)"
+                android:title="Country" />
+
+            <ListPreference
+                android:defaultValue="(Unspecified)"
+                android:entries="@array/gender"
+                android:entryValues="@array/genderValues"
+                android:key="pref_user_gender"
+                android:summary="Choose gender (Optional)"
+                android:title="Gender" />
+
+        </PreferenceScreen>
+        <PreferenceScreen
+            android:key="pref_privacy_category_button"
+            android:persistent="false"
+            android:title="Privacy settings">
+
+
+        </PreferenceScreen>
+    </PreferenceCategory>
+    <PreferenceCategory
+        android:key="pref_maps"
+        android:title="Maps">
+
+    </PreferenceCategory>
+
+</PreferenceScreen>

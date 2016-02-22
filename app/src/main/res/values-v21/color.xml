@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="primary">#3268AD</color>
+    <color name="primary_dark">#235799</color>
+    <color name="accent">#5381BD</color>
+    <color name="navigation_bar">#3268AD</color>
+    <color name="text_primary">#eaf1fd</color>
+    <color name="menu_text">#202020</color>
+</resources>

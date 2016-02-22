@@ -1,0 +1,135 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <fragment
+        android:id="@+id/map"
+        android:name="com.google.android.gms.maps.MapFragment"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" />
+
+      <RelativeLayout
+          android:id="@+id/marker_info"
+          android:layout_width="fill_parent"
+          android:layout_height="250dp"
+          android:layout_gravity="bottom"
+          android:layout_alignParentBottom="true"
+          android:visibility="gone"
+          android:background="#00ffffff">
+
+          <RelativeLayout
+              android:layout_width="fill_parent"
+              android:layout_height="215dp"
+              android:layout_alignParentBottom="true"
+              android:background="#ffffff"
+              android:id="@+id/marker_info_bottom">
+
+          </RelativeLayout>
+
+          <RelativeLayout
+              android:layout_width="fill_parent"
+              android:layout_height="fill_parent"
+              android:id="@+id/marker_info_top">
+
+              <TextView
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:textAppearance="?android:attr/textAppearanceLarge"
+                  android:text="title"
+                  android:id="@+id/info_title"
+                  android:layout_alignParentTop="false"
+                  android:layout_alignParentRight="true"
+                  android:layout_alignParentLeft="false"
+                  android:layout_toRightOf="@+id/info_image"
+                  android:layout_alignBottom="@+id/info_image"
+                  android:layout_marginLeft="10dp"
+                  android:gravity="left"
+                  android:layout_marginBottom="10dp" />
+
+              <Button
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:text="Close"
+                  android:id="@+id/info_close"
+                  android:layout_alignParentLeft="false"
+                  android:layout_alignParentRight="true"
+                  android:layout_alignParentTop="false"
+                  android:layout_above="@+id/info_title" />
+
+              <ImageView
+                  android:layout_width="100dp"
+                  android:layout_height="100dp"
+                  android:id="@+id/info_image"
+                  android:layout_alignParentBottom="false"
+                  android:layout_alignParentTop="true"
+                  android:layout_alignParentRight="false"
+                  android:layout_alignParentLeft="false"
+                  android:layout_marginLeft="25dp"
+                  android:background="#EEE"
+                  android:padding="5dp" />
+
+              <ImageView
+                  android:layout_width="25dp"
+                  android:layout_height="25dp"
+                  android:id="@+id/enlarge"
+                  android:layout_alignRight="@+id/info_image"
+                  android:src="@mipmap/ic_open_with_white_24dp"
+                  android:background="#19000000"
+                  android:layout_alignTop="@+id/info_image" />
+
+              <TextView
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:text="description \nrow2 \nrow3\nrow4"
+                  android:id="@+id/info_description"
+                  android:maxLines="4"
+                  android:layout_alignParentLeft="false"
+                  android:layout_alignParentStart="false"
+                  android:layout_alignParentRight="true"
+                  android:layout_alignLeft="@+id/info_image"
+                  android:layout_below="@+id/info_image"
+                  android:layout_marginTop="5dp" />
+
+              <TextView
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:text="by_username"
+                  android:id="@+id/info_username"
+                  android:layout_below="@+id/info_description"
+                  android:layout_centerHorizontal="true"
+                  android:layout_alignParentLeft="false"
+                  android:layout_alignParentRight="true"
+                  android:maxLines="1"
+                  android:layout_alignLeft="@+id/info_image"
+                  android:layout_marginTop="5dp" />
+
+              <TextView
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:text="type"
+                  android:id="@+id/info_type"
+                  android:layout_below="@+id/info_username"
+                  android:layout_alignParentLeft="false"
+                  android:layout_alignParentRight="true"
+                  android:maxLines="1"
+                  android:layout_alignLeft="@+id/info_image"
+                  android:layout_marginTop="5dp" />
+
+              <com.github.curioustechizen.ago.RelativeTimeTextView
+                  android:id="@+id/timestamp"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  app:relative_time_prefix="Added: "
+                  android:layout_below="@+id/info_type"
+                  android:layout_alignParentLeft="false"
+                  android:layout_alignParentRight="true"
+                  android:layout_alignLeft="@+id/info_image"
+                  android:layout_marginTop="5dp"
+                  android:maxLines="1"
+                  android:text="timestamp" />
+          </RelativeLayout>
+
+      </RelativeLayout>
+
+</RelativeLayout>

@@ -1,0 +1,45 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="com.free.dennisg.atlas.MapOverview">
+
+    <item
+        android:id="@+id/action_refresh"
+        android:icon="@mipmap/ic_refresh_white_24dp"
+        android:orderInCategory="0"
+        android:title="@string/action_refresh"
+        android:showAsAction="always"/>
+    <item
+        android:id="@+id/action_private_map"
+        android:icon="@mipmap/ic_map_white_24dp"
+        android:orderInCategory="0"
+        android:title="@string/action_private_map"
+        android:showAsAction="always"/>
+    <item
+        android:id="@+id/action_settings"
+        android:orderInCategory="1"
+        android:title="@string/action_settings" />
+    <item
+        android:id="@+id/action_add_place"
+        android:orderInCategory="2"
+        android:title="@string/action_add_place"
+        android:icon="@mipmap/ic_add_location_white_24dp"
+        android:showAsAction="always"/>
+    <item
+        android:id="@+id/action_sign_out"
+        android:orderInCategory="3"
+        android:title="@string/action_sing_out" />
+    <item
+        android:id="@+id/action_get_profile"
+        android:orderInCategory="4"
+        android:title="Profile" />
+    <item
+        android:id="@+id/action_zoom_to_me"
+        android:orderInCategory="5"
+        android:title="@string/action_zoom_to_me" />
+    <item
+        android:id="@+id/action_clear"
+        android:orderInCategory="6"
+        android:title="@string/action_clear" />
+
+</menu>
