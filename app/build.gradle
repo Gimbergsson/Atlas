@@ -13,18 +13,20 @@ android {
         versionName "0.0.2 Alpha"
     }
     signingConfigs {
+        /*
         release {
             storeFile file("myreleasekey.keystore")
-            storePassword "Hockeymodo1994"
-            keyAlias "dennis gimbergsson"
-            keyPassword "Hockeymodo1994"
+            storePassword "password"
+            keyAlias "alias"
+            keyPassword "password"
         }
+        */
     }
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-            signingConfig signingConfigs.release
+            //signingConfig signingConfigs.release
         }
     }
     lintOptions {
@@ -44,6 +46,8 @@ allprojects {
     }
 }
 
+apply plugin: 'com.android.application'
+
 dependencies {
     //Facebook SDK library
     compile 'com.facebook.android:facebook-android-sdk:4.10.0'
@@ -58,7 +62,7 @@ dependencies {
     //reCAPTCHA library
     compile 'android.lib.recaptcha:reCAPTCHA:1.0.2'
     //Google play services library (Google maps, play, etc...)
-    compile 'com.google.android.gms:play-services:+'
+    compile 'com.google.android.gms:play-services:8.4.0'
 
     /*compile 'com.android.support:appcompat-v7:23.1.1'
     compile 'com.android.support:support-v4:23.1.1'
