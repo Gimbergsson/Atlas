@@ -16,8 +16,8 @@ from subprocess import CalledProcessError
 
 __author__ = 'mariotaku'
 git_https_url_prefix = 'https://github.com/'
-git_ssh_url_prefix = 'Gimbergsson@github.com:'
-git_git_url_prefix = 'git://github.com:Gimbergsson/Atlas.git'
+git_ssh_url_prefix = 'git@github.com:'
+git_git_url_prefix = 'git://github.com/'
 git_file_suffix = '.git'
 github_header_accept = 'application/vnd.github.v3+json'
 github_header_user_agent = 'TravisUploader/0.1'
