@@ -12,16 +12,16 @@ android {
         versionCode 1
         versionName "0.0.2 Alpha"
     }
-    signingConfigs {
-        /*
+    /*signingConfigs {
+
         release {
             storeFile file("myreleasekey.keystore")
             storePassword "password"
             keyAlias "alias"
             keyPassword "password"
         }
-        */
-    }
+
+    }*/
     buildTypes {
         release {
             minifyEnabled false
