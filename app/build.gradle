@@ -11,6 +11,7 @@ android {
         targetSdkVersion 'N'
         versionCode 1
         versionName "0.0.2 Alpha"
+        multiDexEnabled true
     }
     /*signingConfigs {
 
