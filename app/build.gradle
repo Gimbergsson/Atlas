@@ -1,17 +1,25 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 'android-N'
+    signingConfigs {
+    }
+    compileSdkVersion 23
     buildToolsVersion '24.0.0 rc1'
     useLibrary 'org.apache.http.legacy'
-
     defaultConfig {
         applicationId "com.free.dennisg.atlas"
-        minSdkVersion 15
-        targetSdkVersion 'N'
+        minSdkVersion 18
+        targetSdkVersion 23
         versionCode 1
         versionName "0.0.2 Alpha"
         multiDexEnabled true
+
+        //Android Test
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    packagingOptions {
+        exclude 'META-INF/maven/com.google.guava/guava/pom.properties'
+        exclude 'META-INF/maven/com.google.guava/guava/pom.xml'
     }
     /*signingConfigs {
 
@@ -29,9 +37,15 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             //signingConfig signingConfigs.release
         }
+        debug {
+            debuggable true
+            jniDebuggable true
+        }
     }
     lintOptions {
         abortOnError false
+    }
+    productFlavors {
     }
 }
 repositories {
@@ -47,8 +61,6 @@ allprojects {
     }
 }
 
-apply plugin: 'com.android.application'
-
 dependencies {
     //Facebook SDK library
     compile 'com.facebook.android:facebook-android-sdk:4.10.0'
@@ -63,12 +75,19 @@ dependencies {
     //reCAPTCHA library
     compile 'android.lib.recaptcha:reCAPTCHA:1.0.2'
     //Google play services library (Google maps, play, etc...)
-    compile 'com.google.android.gms:play-services:8.4.0'
+    //  compile 'com.google.android.gms:play-services:8.4.0'
+        compile 'com.google.android.gms:play-services-maps:8.4.0'
 
-    /*compile 'com.android.support:appcompat-v7:23.1.1'
-    compile 'com.android.support:support-v4:23.1.1'
-    compile 'org.jbundle.util.osgi.wrapped:org.jbundle.util.osgi.wrapped.org.apache.http.client:4.1.2'
-    androidTestCompile 'com.android.support:support-annotations:23.1.1'
+    /**
+     * Android Test
+     */
+
+    // Required -- JUnit 4 framework
+    testCompile 'junit:junit:4.12'
+    // Optional -- Mockito framework
+    testCompile 'org.mockito:mockito-core:1.10.19'
+
+    androidTestCompile 'com.android.support:support-annotations:23.2.1'
     androidTestCompile 'com.android.support.test:runner:0.4.1'
     androidTestCompile 'com.android.support.test:rules:0.4.1'
     // Optional -- Hamcrest library
@@ -76,9 +95,5 @@ dependencies {
     // Optional -- UI testing with Espresso
     androidTestCompile 'com.android.support.test.espresso:espresso-core:2.2.1'
     // Optional -- UI testing with UI Automator
-    androidTestCompile 'com.android.support.test.uiautomator:uiautomator-v18:2.1.1'    // Required -- JUnit 4 framework
-    testCompile 'junit:junit:4.12'
-    // Optional -- Mockito framework
-    testCompile 'org.mockito:mockito-core:1.10.19'
-    */
+    androidTestCompile 'com.android.support.test.uiautomator:uiautomator-v18:2.1.1'
 }

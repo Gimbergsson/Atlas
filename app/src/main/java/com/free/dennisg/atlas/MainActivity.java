@@ -391,8 +391,8 @@ public class MainActivity extends Activity {
 
         @Override
         protected void onPostExecute(Void args) {
+            if (nodelist != null) {
                 for (int temp = 0; temp < nodelist.getLength(); temp++) {
-
                     Node nNode = nodelist.item(temp);
                     if (nNode.getNodeType() == Node.ELEMENT_NODE) {
                         Element eElement = (Element) nNode;
@@ -407,6 +407,7 @@ public class MainActivity extends Activity {
                     }
                 }
                 pDialog.dismiss();
+            }
         }
     }
 
