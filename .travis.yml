@@ -6,7 +6,7 @@ android:
     - extra-android-support
     - tools
     - build-tools-24.4.1
-    - android-24
+    - android-23
     - extra-google-google_play_services
     - extra-android-m2repository
     - extra-google-m2repository
