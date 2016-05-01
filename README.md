@@ -25,7 +25,9 @@ To install a .apk from a release below
 ## Releases
 
 ### Alpha
-foo <font color='red'>bar</font> foo
+```html
+   <font color='red'>bar</font> foo
+```
 - [0.0.2 Alpha - 2016/05/01](https://github.com/Gimbergsson/Atlas/raw/master/app/app-release.apk "0.0.2 Alpha - /app/app-release")
 
 ### Beta
