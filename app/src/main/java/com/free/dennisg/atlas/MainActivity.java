@@ -207,7 +207,7 @@ public class MainActivity extends Activity {
     @Override
     public void onRequestPermissionsResult(int requestCode, String permissions[], int[] grantResults) {
             if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                Toast.makeText(this, "Nice, all features can be used now.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Nice, all features can be used now", Toast.LENGTH_SHORT).show();
                 // permission was granted, yay!
                 Intent mapOverviewIntent = new Intent(MainActivity.this, MainActivity.class);
                 startActivity(mapOverviewIntent);

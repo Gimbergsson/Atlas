@@ -10,7 +10,7 @@ android:
     - extra-google-google_play_services
     - extra-android-m2repository
     - extra-google-m2repository
-script: gradle assemble
+script: ./gradlew assembleDebug
 
 before_install:
   - sudo apt-get update -qq
