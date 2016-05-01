@@ -25,9 +25,7 @@ To install a .apk from a release below
 ## Releases
 
 ### Alpha
-```html
-   <font color='red'>bar</font> foo
-```
+WARNING! Encryption key and salt for the 3rd Party encryption used to encrypt the password with is displayed in plain text in code so it's advice not to use any password you might want to keep secret. Key and Salt will be changed in Beta and Production releases.
 - [0.0.2 Alpha - 2016/05/01](https://github.com/Gimbergsson/Atlas/raw/master/app/app-release.apk "0.0.2 Alpha - /app/app-release")
 
 ### Beta
