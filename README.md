@@ -2,12 +2,9 @@
   <content><![CDATA[
 # ${1:Atlas} [![Build Status](https://travis-ci.org/Gimbergsson/Atlas.svg?branch=master)](https://travis-ci.org/Gimbergsson/Atlas.svg?branch=master)
 ### Atlas is a social network app for android based on location, location, location!
-<br/>
 
 ![alt tag](https://raw.githubusercontent.com/Gimbergsson/Atlas/master/app/src/main/res/mipmap-xhdpi/ic_launcher.png)
 ![alt tag](https://www.android.com/static/img/logos-2x/android-wordmark-8EC047.png)
-
-<br/>
 
 ![alt tag](http://dennisgimbergsson.se/images/atlas_01.png)
 ![alt tag](http://dennisgimbergsson.se/images/atlas_02.png)
@@ -17,6 +14,7 @@ To install a .apk from a release below
 - Download the app and open it
 - Follow the intallation instructions
 - Done!
+
 ## Usage
 - Add places to a world-wide public map (Implemented, preview)
 - Add places to a public map (Not implemented)
@@ -25,15 +23,21 @@ To install a .apk from a release below
 - Follow friends maps (Not implemented)
 - Friends updates in a feed (Not implemented)
 - Notifications (Not implemented)
+
 ## Releases
+
 ### Alpha
 - N/A
+
 ### Beta
 - N/A
+
 ### Production
 - N/A
+
 ## Credits
 Dennis Gimbergsson
+
 ]]></content>
   <tabTrigger>readme</tabTrigger>
 </snippet>
