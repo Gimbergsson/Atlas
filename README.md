@@ -8,9 +8,9 @@
 ![alt tag](http://dennisgimbergsson.se/images/atlas_02.png)
 ## Installation
 To install a .apk from a release below
-- Uncheck unknown sources in the settings
+- Enable unknown sources in the settings
 - Download the app and open it
-- Follow the intallation instructions
+- Follow the installation instructions
 - Done!
 
 ## Usage
