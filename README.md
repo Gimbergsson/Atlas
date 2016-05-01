@@ -35,7 +35,7 @@ WARNING! Encryption key and salt for the 3rd Party encryption used to encrypt th
 - N/A
 
 ## Credits
-Dennis Gimbergsson (dennisgimbergsson@live.se)
-Encryption used to encrypt passwords, [Encryption by simbiose here on GitHub](https://github.com/simbiose/Encryption)
-Facebook SDK Library for Android used, [Simple Facebook SDK for Android by Roman Kushnarenko aka sromku here on GitHub](https://github.com/sromku/android-simple-facebook)
-reCAPTCHA Library to verify users, [reCAPTCHA by Alan Tai aka ayltai here on GitHub](https://github.com/ayltai/Android-Lib-reCAPTCHA)
+- Author, Dennis Gimbergsson (dennisgimbergsson@live.se)
+- Encryption used to encrypt passwords, [Encryption by simbiose here on GitHub](https://github.com/simbiose/Encryption)
+- Facebook SDK Library for Android used, [Simple Facebook SDK for Android by Roman Kushnarenko aka sromku here on GitHub](https://github.com/sromku/android-simple-facebook)
+- reCAPTCHA Library to verify users, [reCAPTCHA by Alan Tai aka ayltai here on GitHub](https://github.com/ayltai/Android-Lib-reCAPTCHA)
