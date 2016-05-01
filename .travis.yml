@@ -15,3 +15,4 @@ script: ./gradlew build
 before_install:
   - sudo apt-get update -qq
   - sudo apt-get install -y python2.7
+  - chmod +x gradlew
