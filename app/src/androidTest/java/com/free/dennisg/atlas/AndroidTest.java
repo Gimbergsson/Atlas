@@ -47,7 +47,7 @@ public class AndroidTest {
         waitTime(1000);
         onView(withId(R.id.login_button)).perform(click());
         waitTime(1000);
-        for (int i = 0; i < 2 ; i++){
+        for (int i = 0; i < 5 ; i++){
             UiDevice device = UiDevice.getInstance(getInstrumentation());
             UiObject marker = device.findObject(new UiSelector().descriptionContains("148"));
             marker.pinchIn(100, 5);

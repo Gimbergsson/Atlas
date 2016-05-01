@@ -10,6 +10,7 @@ import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.support.v4.content.ContextCompat;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -108,7 +109,7 @@ public class MainActivity extends Activity {
                 // Should we show an explanation?
                 if (shouldShowRequestPermissionRationale(Manifest.permission.ACCESS_FINE_LOCATION) && shouldShowRequestPermissionRationale(Manifest.permission.ACCESS_COARSE_LOCATION)) {
                     // Explain to the user why we need to read the contacts
-                    Toast.makeText(this, "This is why I want to access your location", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, "Allow, or some features might be disabled.", Toast.LENGTH_SHORT).show();
                 }
                 requestPermissions(new String[]{Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION}, MY_PERMISSIONS_REQUEST_GET_LOCATION);
                 return;
@@ -141,7 +142,7 @@ public class MainActivity extends Activity {
         });
 
         /**
-         **DO NOT USE THIS KEY AND SALT FOR A RELEASE BUILD
+         **TODO NOT USE THIS KEY AND SALT FOR A RELEASE BUILD
          **/
         encryption = Encryption.getDefault("MyKey", "MySalt", new byte[16]);
 
@@ -206,13 +207,14 @@ public class MainActivity extends Activity {
     @Override
     public void onRequestPermissionsResult(int requestCode, String permissions[], int[] grantResults) {
             if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                Toast.makeText(this, "yaaay", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Nice, all features can be used now.", Toast.LENGTH_SHORT).show();
                 // permission was granted, yay!
                 Intent mapOverviewIntent = new Intent(MainActivity.this, MainActivity.class);
                 startActivity(mapOverviewIntent);
                 finish();
             } else {
-                Toast.makeText(this, "b00", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Quitting, all of the features can't be used.", Toast.LENGTH_SHORT).show();
+                finish();
             }
     }
 
