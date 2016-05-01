@@ -1,5 +1,3 @@
-<snippet>
-  <content><![CDATA[
 # ${1:Atlas} [![Build Status](https://travis-ci.org/Gimbergsson/Atlas.svg?branch=master)](https://travis-ci.org/Gimbergsson/Atlas.svg?branch=master)
 ### Atlas is a social network app for android based on location, location, location!
 
@@ -36,8 +34,4 @@ To install a .apk from a release below
 - N/A
 
 ## Credits
-Dennis Gimbergsson
-
-]]></content>
-  <tabTrigger>readme</tabTrigger>
-</snippet>
+Dennis Gimbergsson (dennisgimbergsson@live.se)
