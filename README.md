@@ -8,10 +8,10 @@
 ![alt tag](http://dennisgimbergsson.se/images/atlas_02.png)
 ## Installation
 To install a .apk from a release below
-- Enable unknown sources in the settings
-- Download the app and open it
-- Follow the installation instructions
-- Done!
+1. Enable unknown sources in the settings
+2. Download the app and open it
+3. Follow the installation instructions
+4. Done!
 
 ## Usage
 - Add places to a world-wide public map (Implemented, preview)
