@@ -67,9 +67,9 @@ public class MainActivity extends Activity {
     ProgressDialog pDialog;
 
     //URL to get the location
-    String URL = "http://dennisgimbergsson.se/places_temp/places.php";
+    String URL = "http://dennisgimbergsson.se/atlas-backend/places.php";
     //URL to send the login info to
-    String LoginURL = "http://dennisgimbergsson.se/places_temp/login.php";
+    String LoginURL = "http://dennisgimbergsson.se/atlas-backend/login.php";
 
     String lng_string, lat_string;
 

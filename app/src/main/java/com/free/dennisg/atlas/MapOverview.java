@@ -73,8 +73,8 @@ public class MapOverview extends Activity implements OnMarkerClickListener{
     NodeList nodelist;
     ProgressDialog pDialog;
 
-    String URL = "http://dennisgimbergsson.se/places_temp/places.php";
-    String URL2 = "http://dennisgimbergsson.se/places_temp/get_unique_location.php";
+    String URL = "http://dennisgimbergsson.se/atlas-backend/places.php";
+    String URL2 = "http://dennisgimbergsson.se/atlas-backend/get_unique_location.php";
 
     //all location strings
     String title_string, description_string, lng_string, lat_string, detailed_description_string, info_image_string, unique_id_string;

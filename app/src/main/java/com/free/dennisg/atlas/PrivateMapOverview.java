@@ -177,8 +177,8 @@ public class PrivateMapOverview extends Activity implements OnMarkerClickListene
 
 
         String userId_string = String.valueOf(userId);
-        LocationListURL     = "http://dennisgimbergsson.se/places_temp/user_locations/" + userId_string + "/private_location_list_id_" + userId_string + ".php";
-        UniqueLocationURL   = "http://dennisgimbergsson.se/places_temp/user_locations/" + userId_string + "/private_get_unique_location_id_" + userId_string + ".php";
+        LocationListURL     = "http://dennisgimbergsson.se/atlas-backend/user_locations/" + userId_string + "/private_location_list_id_" + userId_string + ".php";
+        UniqueLocationURL   = "http://dennisgimbergsson.se/atlas-backend/user_locations/" + userId_string + "/private_get_unique_location_id_" + userId_string + ".php";
 
         new downloadLocationList().execute(LocationListURL);
     }
