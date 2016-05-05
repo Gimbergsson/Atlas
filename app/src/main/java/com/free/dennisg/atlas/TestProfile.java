@@ -22,7 +22,7 @@ import java.net.URL;
 public class TestProfile extends Activity {
 
     SimpleFacebook mSimpleFacebook;
-    String TAG = "Places Debug TAG";
+    String TAG = "Atlas Debug TAG";
 
     TextView status, fb_id, fb_name, fb_email;
     ImageView fb_img;
