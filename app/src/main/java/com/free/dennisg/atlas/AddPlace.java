@@ -49,7 +49,7 @@ public class AddPlace extends Activity {
 
     String lat_double = null;
     String lng_double = null;
-    String URL = "http://dennisgimbergsson.se/atlas-backend/add_location.php";
+    String URL = "https://dennisgimbergsson.se/atlas-backend/add_location.php";
 
     InputStream is = null;
 

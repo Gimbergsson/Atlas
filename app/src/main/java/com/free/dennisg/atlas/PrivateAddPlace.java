@@ -124,7 +124,7 @@ public class PrivateAddPlace extends Activity {
                 lat.setText(lat_double);
                 lng.setText(lng_double);
 
-                URL = "http://dennisgimbergsson.se/atlas-backend/user_locations/" + String.valueOf(userId) +"/private_add_location_id_" + String.valueOf(userId) + ".php";
+                URL = "https://dennisgimbergsson.se/atlas-backend/user_locations/" + String.valueOf(userId) +"/private_add_location_id_" + String.valueOf(userId) + ".php";
 
                 //lat_text = lat.getText().toString();
                 //lng_text = lng.getText().toString();

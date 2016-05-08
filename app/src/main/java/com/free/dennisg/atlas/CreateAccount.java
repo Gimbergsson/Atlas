@@ -53,7 +53,7 @@ public class CreateAccount extends Activity implements ReCaptcha.OnShowChallenge
 
     SimpleFacebook mSimpleFacebook;
 
-    String URL = "http://dennisgimbergsson.se/atlas-backend/create_account.php";
+    String URL = "https://dennisgimbergsson.se/atlas-backend/create_account.php";
 
     InputStream is = null;
     String line = null;
