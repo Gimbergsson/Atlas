@@ -39,7 +39,12 @@ import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpPost;
+import org.apache.http.conn.scheme.Scheme;
+import org.apache.http.conn.scheme.SchemeRegistry;
+import org.apache.http.conn.ssl.SSLSocketFactory;
+import org.apache.http.conn.ssl.X509HostnameVerifier;
 import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.impl.conn.SingleClientConnManager;
 import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONObject;
 import org.w3c.dom.Document;
@@ -55,6 +60,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.net.ssl.HostnameVerifier;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 
@@ -67,9 +73,9 @@ public class MainActivity extends Activity {
     ProgressDialog pDialog;
 
     //URL to get the location
-    String URL = "http://dennisgimbergsson.se/atlas-backend/places.php";
+    String URL = "https://dennisgimbergsson.se/atlas-backend/places.php";
     //URL to send the login info to
-    String LoginURL = "http://dennisgimbergsson.se/atlas-backend/login.php";
+    String LoginURL = "https://dennisgimbergsson.se/atlas-backend/login.php";
 
     String lng_string, lat_string;
 
@@ -292,10 +298,21 @@ public class MainActivity extends Activity {
             values.add(new BasicNameValuePair("EncryptedPassword", encrypted_password));
 
             try {
-                DefaultHttpClient httpclient = new DefaultHttpClient();
+
+                HostnameVerifier hostnameVerifier = org.apache.http.conn.ssl.SSLSocketFactory.ALLOW_ALL_HOSTNAME_VERIFIER;
+
+                DefaultHttpClient client = new DefaultHttpClient();
+
+                SchemeRegistry registry = new SchemeRegistry();
+                SSLSocketFactory socketFactory = SSLSocketFactory.getSocketFactory();
+                Log.e("HOSTNAME", socketFactory.getHostnameVerifier().toString());
+                socketFactory.setHostnameVerifier((X509HostnameVerifier) hostnameVerifier);
+                SingleClientConnManager mgr = new SingleClientConnManager(client.getParams(), registry);
+                DefaultHttpClient httpClient = new DefaultHttpClient(mgr, client.getParams());
+
                 HttpPost httppost = new HttpPost(LoginURL);
                 httppost.setEntity(new UrlEncodedFormEntity(values));
-                HttpResponse response = httpclient.execute(httppost);
+                HttpResponse response = httpClient.execute(httppost);
                 HttpEntity entity = response.getEntity();
                 is = entity.getContent();
 

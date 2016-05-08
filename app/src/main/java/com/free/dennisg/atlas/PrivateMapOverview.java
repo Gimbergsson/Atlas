@@ -44,7 +44,12 @@ import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpPost;
+import org.apache.http.conn.scheme.Scheme;
+import org.apache.http.conn.scheme.SchemeRegistry;
+import org.apache.http.conn.ssl.SSLSocketFactory;
+import org.apache.http.conn.ssl.X509HostnameVerifier;
 import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.impl.conn.SingleClientConnManager;
 import org.apache.http.message.BasicNameValuePair;
 
 import org.json.JSONObject;
@@ -62,6 +67,7 @@ import java.util.ArrayList;
 import java.util.Locale;
 import java.util.TimeZone;
 
+import javax.net.ssl.HostnameVerifier;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 
@@ -177,8 +183,8 @@ public class PrivateMapOverview extends Activity implements OnMarkerClickListene
 
 
         String userId_string = String.valueOf(userId);
-        LocationListURL     = "http://dennisgimbergsson.se/atlas-backend/user_locations/" + userId_string + "/private_location_list_id_" + userId_string + ".php";
-        UniqueLocationURL   = "http://dennisgimbergsson.se/atlas-backend/user_locations/" + userId_string + "/private_get_unique_location_id_" + userId_string + ".php";
+        LocationListURL     = "https://dennisgimbergsson.se/atlas-backend/user_locations/" + userId_string + "/private_location_list_id_" + userId_string + ".php";
+        UniqueLocationURL   = "https://dennisgimbergsson.se/atlas-backend/user_locations/" + userId_string + "/private_get_unique_location_id_" + userId_string + ".php";
 
         new downloadLocationList().execute(LocationListURL);
     }
@@ -276,10 +282,20 @@ public class PrivateMapOverview extends Activity implements OnMarkerClickListene
             values.add(new BasicNameValuePair("ID", marker_snippet_string));
 
             try {
-                DefaultHttpClient httpclient = new DefaultHttpClient();
+                HostnameVerifier hostnameVerifier = org.apache.http.conn.ssl.SSLSocketFactory.ALLOW_ALL_HOSTNAME_VERIFIER;
+
+                DefaultHttpClient client = new DefaultHttpClient();
+
+                SchemeRegistry registry = new SchemeRegistry();
+                SSLSocketFactory socketFactory = SSLSocketFactory.getSocketFactory();
+                socketFactory.setHostnameVerifier((X509HostnameVerifier) hostnameVerifier);
+                registry.register(new Scheme("https", socketFactory, 443));
+                SingleClientConnManager mgr = new SingleClientConnManager(client.getParams(), registry);
+                DefaultHttpClient httpClient = new DefaultHttpClient(mgr, client.getParams());
+
                 HttpPost httppost = new HttpPost(UniqueLocationURL);
                 httppost.setEntity(new UrlEncodedFormEntity(values));
-                HttpResponse response = httpclient.execute(httppost);
+                HttpResponse response = httpClient.execute(httppost);
                 HttpEntity entity = response.getEntity();
                 is = entity.getContent();
 

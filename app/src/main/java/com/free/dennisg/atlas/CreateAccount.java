@@ -34,7 +34,12 @@ import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpPost;
+import org.apache.http.conn.scheme.Scheme;
+import org.apache.http.conn.scheme.SchemeRegistry;
+import org.apache.http.conn.ssl.SSLSocketFactory;
+import org.apache.http.conn.ssl.X509HostnameVerifier;
 import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.impl.conn.SingleClientConnManager;
 import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONObject;
 
@@ -43,6 +48,8 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.URL;
 import java.util.ArrayList;
+
+import javax.net.ssl.HostnameVerifier;
 
 import se.simbio.encryption.Encryption;
 
@@ -53,7 +60,7 @@ public class CreateAccount extends Activity implements ReCaptcha.OnShowChallenge
 
     SimpleFacebook mSimpleFacebook;
 
-    String URL = "http://dennisgimbergsson.se/atlas-backend/create_account.php";
+    String URL = "https://dennisgimbergsson.se/atlas-backend/create_account.php";
 
     InputStream is = null;
     String line = null;
@@ -324,10 +331,20 @@ public class CreateAccount extends Activity implements ReCaptcha.OnShowChallenge
             values.add(new BasicNameValuePair("AcceptedToS", "1"));
 
             try {
-                DefaultHttpClient httpclient = new DefaultHttpClient();
+                HostnameVerifier hostnameVerifier = org.apache.http.conn.ssl.SSLSocketFactory.ALLOW_ALL_HOSTNAME_VERIFIER;
+
+                DefaultHttpClient client = new DefaultHttpClient();
+
+                SchemeRegistry registry = new SchemeRegistry();
+                SSLSocketFactory socketFactory = SSLSocketFactory.getSocketFactory();
+                Log.e("HOSTNAME", socketFactory.getHostnameVerifier().toString());
+                socketFactory.setHostnameVerifier((X509HostnameVerifier) hostnameVerifier);
+                SingleClientConnManager mgr = new SingleClientConnManager(client.getParams(), registry);
+                DefaultHttpClient httpClient = new DefaultHttpClient(mgr, client.getParams());
+
                 HttpPost httppost = new HttpPost(URL);
                 httppost.setEntity(new UrlEncodedFormEntity(values));
-                HttpResponse response = httpclient.execute(httppost);
+                HttpResponse response = httpClient.execute(httppost);
                 HttpEntity entity = response.getEntity();
                 is = entity.getContent();
 
